@@ -34,7 +34,7 @@ func main() {
 	http.HandleFunc("/hola", func(w http.ResponseWriter, p *http.Request) {
 		io.WriteString(w, "Solicitaste hola")
 	})
-	port := ":8080" // Como cadena, no como entero; porque representa una dirección
+	port := ":4000" // Como cadena, no como entero; porque representa una dirección
 	fmt.Println("Ingresa a: " + getOutboundIP() + ":" + port)
 	fmt.Println("Aquí podrás saber mas de mi")
 	log.Fatal(http.ListenAndServe(port, nil))
