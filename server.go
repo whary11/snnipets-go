@@ -15,8 +15,6 @@ import (
 	"strings"
 )
 
-type Person map[string]int
-
 func main() {
 	fmt.Printf("%d\n", getIvaValue(10000, 10))
 
@@ -34,10 +32,10 @@ func main() {
 	http.HandleFunc("/hola", func(w http.ResponseWriter, p *http.Request) {
 		io.WriteString(w, "Solicitaste hola")
 	})
-	port := ":4000" // Como cadena, no como entero; porque representa una dirección
+	port := "4000" // Como cadena, no como entero; porque representa una dirección
 	fmt.Println("Ingresa a: " + getOutboundIP() + ":" + port)
 	fmt.Println("Aquí podrás saber mas de mi")
-	log.Fatal(http.ListenAndServe(port, nil))
+	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
 
 func getJsonResponse() ([]byte, error) {
